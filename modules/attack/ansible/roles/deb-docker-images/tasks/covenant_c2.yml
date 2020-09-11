@@ -1,0 +1,27 @@
+---
+#
+# Pull common docker images for use
+#
+# cyberchef - cyber swiss army knife
+# jsdetox - javascript malware analysis tool
+# alpine - base image
+
+
+- name: clone covenant repository
+  git:
+    repo: https://github.com/cobbr/Covenant
+    version: master
+    dest: /tools/Covenant
+    clone: yes
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+
+- name: Build covenant image
+  docker_image:
+    name: covenant
+    build:
+      path: /tools/Covenant/Covenant
+      pull: yes
+    tag: covenant
+    source: build

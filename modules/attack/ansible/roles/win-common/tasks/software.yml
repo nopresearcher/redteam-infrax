@@ -1,0 +1,106 @@
+---
+- name: Install Notepad++
+  win_chocolatey:
+    name: notepadplusplus 
+
+- name: Install Microsoft Visual C++ Redistributable for Visual Studio 2015-2019
+  win_chocolatey:
+    name: vcredist140
+
+- name: Install Microsoft .NET Framework 4.8
+  win_chocolatey:
+    name: dotnetfx
+
+- name: Install AutoHotKey
+  win_chocolatey:
+    name: autohotkey.portable
+
+- name: Install Google Chrome
+  win_chocolatey:
+    name: googlechrome
+
+- name: Install putty
+  win_chocolatey:
+    name: putty
+
+- name: Install Wireshark
+  win_chocolatey:
+    name: wireshark
+  register: install_wireshark
+  until: install_wireshark is not failed
+  retries: 3
+
+- name: Install Greenshot
+  win_chocolatey:
+    name: greenshot
+
+- name: Install git
+  win_chocolatey:
+    name: git
+
+- name: Install curl
+  win_chocolatey:
+    name: curl
+
+- name: Install wget
+  win_chocolatey:
+    name: wget
+
+- name: Install 7zip
+  win_chocolatey:
+    name: 7zip.install
+
+- name: Install Sysinternals
+  win_chocolatey:
+    name: sysinternals
+
+- name: Install Process Hacker
+  win_chocolatey:
+    name: processhacker
+
+- name: Install Visual Studio Code
+  win_chocolatey:
+    name: vscode
+
+- name: Install Netcat
+  win_chocolatey:
+    name: netcat
+
+- name: Install Burp Suite Community Edition
+  win_chocolatey:
+    name: burp-suite-free-edition
+
+- name: Install Python 3
+  win_chocolatey:
+    name: python3
+
+- name: Install Java Runtime (JRE)
+  win_chocolatey:
+    name: javaruntime
+
+- name: Install Ghidra
+  win_chocolatey:
+    name: ghidra
+  register: install_ghidra
+  until: install_ghidra is not failed
+  retries: 3
+
+- name: Install x64dbg
+  win_chocolatey:
+    name: x64dbg.portable
+
+- name: Install ollydbg
+  win_chocolatey:
+    name: ollydbg
+  register: install_ollydbg
+  until: install_ollydbg is not failed
+  retries: 3
+
+#- name: Install nmap
+#  win_chocolatey:
+#    name: nmap
+
+- name: Upgrade installed packages
+  win_chocolatey:
+    name: all
+    state: latest

@@ -1,0 +1,11 @@
+# terraform
+.terraform
+.terraform.tfstate.lock.info
+*.tfstate
+*.tfstate.backup
+*.tfvars
+key.pem
+key.pem.pub
+TODO.md
+modules/attack/ansible/hosts.kali
+modules/attack/ansible/hosts.win

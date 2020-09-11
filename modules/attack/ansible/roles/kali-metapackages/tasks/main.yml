@@ -1,0 +1,25 @@
+---
+- name: Update apt
+  apt: update_cache=yes
+
+- name: Install kali-linux-core
+  apt:
+    name: kali-linux-core
+    state: latest
+
+- name: Install kali-linux-default
+  apt:
+    name: kali-linux-default
+    state: latest
+
+- name: Install kali metapackages
+  vars:
+    sys_packages:
+      - kali-tools-web
+      - kali-tools-reverse-engineering
+      - kali-tools-post-exploitation
+      - kali-tools-reporting
+      - kali-tools-crypto-stego
+      - kali-tools-fuzzing
+      - kali-tools-windows-resources
+  apt: name={{ sys_packages }} state=latest

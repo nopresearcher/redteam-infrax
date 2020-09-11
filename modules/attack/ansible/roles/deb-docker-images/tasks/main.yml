@@ -1,0 +1,34 @@
+---
+#
+# Pull common docker images for use
+#
+# cyberchef - cyber swiss army knife
+# jsdetox - javascript malware analysis tool
+# alpine - base image
+
+
+- name: pull cyberchef
+  docker_image:
+    name: mpepping/cyberchef
+    source: pull
+
+- name: pull jsdetox
+  docker_image:
+    name: remnux/jsdetox
+    source: pull
+
+- name: pull alpine
+  docker_image:
+    name: alpine
+    source: pull
+
+- name: build covenant
+  include_tasks: covenant_c2.yml
+
+- name: add docker info file
+  copy: 
+    src: files/docker_images.md
+    dest: /tools/docker_images.md
+    owner: root
+    group: root
+    mode: 0666

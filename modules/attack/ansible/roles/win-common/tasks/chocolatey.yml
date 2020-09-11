@@ -1,0 +1,10 @@
+---
+- name: Install Chocolately via Powershell
+  win_shell: "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))"
+
+- name: "Add chocolatey to PATH."
+  win_path:
+    name: PATH
+    elements: '%ALLUSERSPROFILE%\chocolatey\bin'
+    scope: machine
+    state: present

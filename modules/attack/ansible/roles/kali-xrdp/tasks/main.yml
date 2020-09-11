@@ -1,0 +1,11 @@
+---
+- name: Update apt
+  apt: update_cache=yes
+  
+- name: Install xrdp
+  vars:
+    sys_packages: [ 'kali-desktop-xfce', 'xorg', 'xrdp' ]
+  apt: name={{ sys_packages }} state=latest
+
+- name: Start xrdp
+  shell: systemctl enable xrdp --now

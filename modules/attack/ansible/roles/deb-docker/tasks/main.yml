@@ -1,0 +1,32 @@
+# install docker
+- name: Add Docker PGP Apt signing key
+  apt_key:
+    url: https://download.docker.com/linux/debian/gpg
+    state: present
+
+- apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/debian buster stable
+    state: present
+    filename: docker
+
+- name: Update apt
+  apt: update_cache=yes
+
+- name: Install docker
+  apt:
+    name: docker-ce
+    state: present
+
+- name: Install docker
+  apt:
+    name: docker-compose
+    state: present
+
+- name: Start Docker
+  systemd:
+    state: started
+    daemon_reload: yes
+    name: docker
+
+- pip:
+    name: docker

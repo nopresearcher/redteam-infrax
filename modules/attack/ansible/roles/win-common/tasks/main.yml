@@ -1,0 +1,4 @@
+---
+- include: windows-disable-defender.yml
+- include: chocolatey.yml
+- include: software.yml
