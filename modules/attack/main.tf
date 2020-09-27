@@ -50,7 +50,7 @@ resource "aws_security_group" "windows" {
     description = "Allow some rando ports in from anywhere"
     from_port   = 55000
     to_port     = 60000
-    protocol    = "-1"
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
@@ -59,7 +59,8 @@ resource "aws_security_group" "windows" {
     from_port   = 3389
     to_port     = 3389
     protocol    = "tcp"
-    cidr_blocks = ["${local.ifconfig_co_json.ip}/32"]
+    cidr_blocks = ["0.0.0.0/0"]
+    #cidr_blocks = ["${local.ifconfig_co_json.ip}/32"]
   }
 
   ingress {
@@ -121,7 +122,7 @@ resource "aws_instance" "kali" {
   count         = var.enable_kali ? 1: 0
   key_name      = aws_key_pair.attack.key_name
   ami           = "ami-08c8387e171a3d095"
-  instance_type = "t2.micro"
+  instance_type = "t2.medium"
 
   tags = {
     Name = "Kali"
@@ -156,7 +157,7 @@ resource "aws_instance" "windows" {
   count         = var.enable_windows ? 1: 0
   key_name      = aws_key_pair.attack.key_name
   ami           = var.windows_ami
-  instance_type = "t2.micro"
+  instance_type = "t2.medium"
   get_password_data      =   "true"
   vpc_security_group_ids = [ 
     aws_security_group.windows.id 

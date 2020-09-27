@@ -1,5 +1,11 @@
 # Overview
-This gives you a Windows Server 2019, Kali (latest) and Ubunutu 20.04 (disabled) on AWS. It is configurable to only deploy what boxes you want.  After deployment it installs a number of tools and does some configuration.  The installs happen concurrently which speeds things up, however this can still take 20 minutes.  Total cost of running one windows and one linux host with storage for the month is ~$26, with the free tier discount ~$3.
+This gives you a Windows Server 2019, Kali (latest) and Ubunutu 20.04 (disabled) on AWS. It is configurable to only deploy what boxes you want.  After deployment it installs a number of tools and does some configuration.  The installs happen concurrently which speeds things up, however this can still take 25 minutes.  Total cost of running one windows and one linux host with storage for the month is ~$26, with the free tier discount ~$3.
+```
+| OS      | t2.micro | t2.medium |
+| ------- | -------- | --------- |
+| Linux   | 8.50     | 33.97     |
+| Windows | 11.86    | 47.15     |
+```
 
 # Setup
 Run all the commands from the root of the repo

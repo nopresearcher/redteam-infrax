@@ -1,0 +1,5 @@
+---
+- name: Download ysoserial
+  win_get_url:
+    url: https://openvpn.net/downloads/openvpn-connect-v3-windows.msi
+    dest: C:\Users\Administrator\Downloads\openvpn-connect-v3-windows.msi

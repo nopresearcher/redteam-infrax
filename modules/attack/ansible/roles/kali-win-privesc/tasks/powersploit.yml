@@ -1,0 +1,16 @@
+---
+#
+# Tasks to be applied to some servers
+#
+
+# Add tasks for a specific role to this playbook...
+
+
+- name: clone powersploit repository
+  git:
+    repo: https://github.com/PowerShellMafia/PowerSploit.git
+    version: master
+    dest: /tools/PowerSploit
+    clone: yes
+    update: yes
+    accept_hostkey: yes

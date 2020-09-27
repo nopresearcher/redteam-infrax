@@ -78,6 +78,41 @@
   win_chocolatey:
     name: javaruntime
 
+- name: Install RegShot
+  win_chocolatey:
+    name: regshot
+  register: install_regshot
+  until: install_regshot is not failed
+  retries: 3
+
+- name: Install Strings2
+  win_chocolatey:
+    name: strings2
+  register: install_strings2
+  until: install_strings2 is not failed
+  retries: 3
+
+- name: Install floss
+  win_chocolatey:
+    name: floss
+  register: install_floss
+  until: install_floss is not failed
+  retries: 3
+
+- name: Install ExplorerSuite (PE editor, CFF explorer)
+  win_chocolatey:
+    name: explorersuite
+  register: install_explorersuite
+  until: install_explorersuite is not failed
+  retries: 3
+
+- name: Install Detect It Easy
+  win_chocolatey:
+    name: die
+  register: install_die
+  until: install_die is not failed
+  retries: 3
+
 - name: Install Ghidra
   win_chocolatey:
     name: ghidra
@@ -96,9 +131,13 @@
   until: install_ollydbg is not failed
   retries: 3
 
-#- name: Install nmap
-#  win_chocolatey:
-#    name: nmap
+- name: Install nmap
+  win_chocolatey:
+    name: nmap
+  register: install_nmap
+  until: install_nmap is not failed
+  retries: 3
+  ignore_errors: yes
 
 - name: Upgrade installed packages
   win_chocolatey:

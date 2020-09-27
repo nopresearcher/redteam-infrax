@@ -1,0 +1,16 @@
+---
+#
+# Tasks to be applied to some servers
+#
+
+# Add tasks for a specific role to this playbook...
+
+
+- name: clone beroot repository
+  git:
+    repo: https://github.com/AlessandroZ/BeRoot.git
+    version: master
+    dest: /tools/BeRoot
+    clone: yes
+    update: yes
+    accept_hostkey: yes

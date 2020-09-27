@@ -1,0 +1,12 @@
+---
+- name: Download ysoserial
+  win_get_url:
+    url: https://github.com/pwntester/ysoserial.net/releases/download/v1.33/ysoserial-1.33.zip
+    dest: C:\Users\Administrator\Downloads\ysoserial-1.33.zip
+
+- name: Unzip ysoserial
+  win_unzip:
+    src: C:\Users\Administrator\Downloads\ysoserial-1.33.zip
+    dest: C:\Users\Administrator\Downloads\ysoserial
+    creates: C:\Users\Administrator\Downloads\ysoserial
+    delete_archive: yes

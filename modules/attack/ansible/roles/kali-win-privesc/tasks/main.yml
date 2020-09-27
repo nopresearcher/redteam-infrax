@@ -1,0 +1,26 @@
+---
+#
+# Tasks to be applied to some servers
+#
+
+# Add tasks for a specific role to this playbook...
+
+
+- name: clone JAWS repository
+  include_tasks: jaws.yml
+- name: clone sherlock repository
+  include_tasks: sherlock.yml
+- name: clone watson repository
+  include_tasks: watson.yml
+- name: clone windows exploit suggester
+  include_tasks: windows-exploit-suggester.yml
+- name: clone privesc
+  include_tasks: privesc.yml
+- name: clone beroot
+  include_tasks: beroot.yml
+- name: clone powersploit
+  include_tasks: powersploit.yml
+- name: clone sessiongopher
+  include_tasks: sessiongopher.yml
+- name: clone powerupsql
+  include_tasks: powerupsql.yml

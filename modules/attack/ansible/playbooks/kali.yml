@@ -5,6 +5,8 @@
     - deb-common
     - kali-xrdp
     - kali-metapackages
+    - kali-password
+    - deb-vscode
     - deb-docker
     - deb-docker-images
 
